@@ -19,7 +19,7 @@ class TaskFactory extends Factory
         return [
             'name' => $this->faker->sentence(4),
             'description' => $this->faker->realText(),
-            'due_date' => $this->faker->dateTimeBetween('now', '+1 year')->format('d-m-Y'),
+            'due_date' => $this->faker->dateTimeBetween('now', '+1 year'),
             'status' => $this->faker->randomElement(['pending', 'in_progress', 'completed']),
             'priority' => $this->faker->randomElement(['low', 'medium', 'high']),
             'image_path' => $this->faker->imageUrl(),
