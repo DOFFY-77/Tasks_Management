@@ -30,11 +30,8 @@ const TasksTable = ({
 
   const sortChanged = (name) => {
     if (name === queryParams.sort_field) {
-      if (queryParams.sort_direction === "asc") {
-        queryParams.sort_direction = "desc";
-      } else {
-        queryParams.sort_direction = "asc";
-      }
+      queryParams.sort_direction =
+        queryParams.sort_direction === "asc" ? "desc" : "asc";
     } else {
       queryParams.sort_field = name;
       queryParams.sort_direction = "asc";
@@ -42,12 +39,6 @@ const TasksTable = ({
     router.get(route("task.index"), queryParams);
   };
 
-  const deleteTask = (task) => {
-    if (!window.confirm("Are you sure you want to delete the task?")) {
-      return;
-    }
-    router.delete(route("task.destroy", task.id));
-  };
 
   return (
     <>
