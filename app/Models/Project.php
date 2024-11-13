@@ -10,17 +10,15 @@ class Project extends Model
     /** @use HasFactory<\Database\Factories\ProjectFactory> */
     use HasFactory;
 
-    // protected $fillable = [
-    //     'name',
-    //     'description',
-    //     'due_date',
-    //     'status',
-    //     'image_path',
-    //     'created_at',
-    //     'updated_at',
-    //     'created_by',
-    //     'updated_by',
-    // ];
+    protected $fillable = [
+        'image_path',
+        'name',
+        'description',
+        'status',
+        'due_date',
+        'created_by',
+        'updated_by',
+    ];
 
     /**
      * Get the tasks associated with the project.
