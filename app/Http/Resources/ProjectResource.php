@@ -19,13 +19,14 @@ class ProjectResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'image_path' => $this->image_path || $this->image_path ? Storage::url($this->image_path) : '',
-            'name' => $this->name ,
+            'image_path' => $this->image_path && !(str_starts_with($this->image_path, 'http')) ?
+                Storage::url($this->image_path) : $this->image_path,
+            'name' => $this->name,
             'description' => $this->description,
             'status' => $this->status,
-            'due_date' => (new Carbon($this->due_date))->format('d-m-Y'),
-            'created_at' => (new Carbon($this->created_at))->format('d-m-Y'),
-            'updated_at' => (new Carbon($this->updated_at))->format('d-m-Y'),  
+            'due_date' => (new Carbon($this->due_date))->format('Y-m-d'),
+            'created_at' => (new Carbon($this->created_at))->format('Y-m-d'),
+            'updated_at' => (new Carbon($this->updated_at))->format('Y-m-d'),
             'createdBy' => new UserResource($this->createdBy),
             'updatedBy' => new UserResource($this->updatedBy),
         ];

@@ -19,22 +19,15 @@ class Project extends Model
         'created_by',
         'updated_by',
     ];
-
-    /**
-     * Get the tasks associated with the project.
-     */
     public function tasks()
     {
         return $this->hasMany(Task::class);
     }
-
-    /**
-     * Get the user that created the project.
-     */
+    
     public function createdBy()
     {
         return $this->belongsTo(User::class, 'created_by');
-    }   
+    }
 
     /**
      * Get the user that updated the project.

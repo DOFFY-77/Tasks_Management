@@ -9,6 +9,7 @@ import {
 import { Head, Link, router } from "@inertiajs/react";
 import TableHeading from "@/Components/TableHeading";
 import toast from "react-hot-toast";
+import { PencilSquareIcon, TrashIcon } from "@heroicons/react/16/solid";
 
 
 const Index = ({ auth, projects, queryParams = null, success }) => {
@@ -57,7 +58,7 @@ const Index = ({ auth, projects, queryParams = null, success }) => {
           </h2>
           <Link
             href={route("project.create")}
-            className="bg-emerald-500 py-1 px-3 text-white rounded shadow transition-all hover:bg-emerald-600"
+            className="px-3 py-1 text-white transition-all rounded shadow bg-emerald-500 hover:bg-emerald-600"
           >
             Add new
           </Link>
@@ -69,15 +70,15 @@ const Index = ({ auth, projects, queryParams = null, success }) => {
       <div className="py-12 ">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
           {/* {success && (
-            <div className="bg-emerald-500 py-2 px-4 text-white rounded mb-4">
+            <div className="px-4 py-2 mb-4 text-white rounded bg-emerald-500">
               {success}
             </div>
           )} */}
           <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
             <div className="p-6 text-gray-900 dark:text-gray-100">
               <div className="overflow-auto">
-                <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                  <thead className="text-sm text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b-2 border-gray-500">
+                <table className="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+                  <thead className="text-sm text-gray-700 uppercase border-b-2 border-gray-500 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr className="text-nowrap ">
                       <TableHeading
                         name="id"
@@ -127,7 +128,7 @@ const Index = ({ auth, projects, queryParams = null, success }) => {
                       <th className="px-3 py-3 text-right">Actions</th>
                     </tr>
                   </thead>
-                  <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b-2 border-gray-500">
+                  <thead className="text-xs text-gray-700 uppercase border-b-2 border-gray-500 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr className="text-nowrap">
                       <th className="px-3 py-3"></th>
                       <th className="px-3 py-3"></th>
@@ -195,18 +196,18 @@ const Index = ({ auth, projects, queryParams = null, success }) => {
                           {project.due_date}
                         </td>
                         <td className="px-3 py-2">{project.createdBy.name}</td>
-                        <td className="px-3 py-2 text-nowrap">
+                        <td className="px-3 py-2 ">
                           <Link
                             href={route("project.edit", project.id)}
-                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline mx-1"
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:"
                           >
-                            Edit
+                            <PencilSquareIcon className="w-5 h-6" />
                           </Link>
                           <button
                             onClick={(e) => deleteProject(project)}
-                            className="font-medium text-red-600 dark:text-red-500 hover:underline mx-1"
+                            className="font-medium text-red-600 dark:text-red-500"
                           >
-                            Delete
+                            <TrashIcon className="w-5 h-6" />
                           </button>
                         </td>
                       </tr>

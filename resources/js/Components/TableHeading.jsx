@@ -1,5 +1,6 @@
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/16/solid";
 
+
 const TableHeading =({
   name,
   sortable = true,
@@ -10,7 +11,7 @@ const TableHeading =({
 })  => {
   return (
     <th onClick={(e) => sortChanged(name)}>
-      <div className="px-3 py-3 flex items-center justify-between cursor-pointer">
+      <div className="flex items-center justify-between px-3 py-3 cursor-pointer">
         {children}
         {sortable && sort_field === name && (
           
@@ -18,7 +19,7 @@ const TableHeading =({
             { sort_direction === "asc" ? (
               <ChevronUpIcon className="w-4 text-gray-200" />
             ) : (
-              <ChevronDownIcon className=" w-4 text-gray-200" />
+              <ChevronDownIcon className="w-4 text-gray-200 " />
             )}
           </div>
         )}
