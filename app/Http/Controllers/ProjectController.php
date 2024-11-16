@@ -19,21 +19,17 @@ class ProjectController extends Controller
     public function index()
     {
         $query = Project::query();
-
         $sortField = request("sort_field", 'created_at');
         $sortDirection = request("sort_direction", "desc");
-
         if (request("name")) {
             $query->where("name", "like", "%" . request("name") . "%");
         }
         if (request("status")) {
             $query->where("status", request("status"));
         }
-
         $projects = $query->orderBy($sortField, $sortDirection)
             ->paginate(10)
             ->onEachSide(1);
-
         return inertia("Project/Index", [
             "projects" => ProjectResource::collection($projects),
             'queryParams' => request()->query() ?: null,
@@ -63,15 +59,11 @@ class ProjectController extends Controller
     if ($image instanceof \Illuminate\Http\UploadedFile) {
         $data['image_path'] = $image->store('project/' . Str::random(), 'public');
     }
-
     $data['created_by'] = Auth::id();
     $data['updated_by'] = Auth::id();
-
     Project::create($data);
-
     return to_route("project.index")->with('success', 'Project created successfully.');
 }
-
     /**
      * Display the specified resource.
      */

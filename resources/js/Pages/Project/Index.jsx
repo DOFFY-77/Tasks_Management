@@ -2,15 +2,11 @@ import Pagination from "@/Components/Pagination";
 import SelectInput from "@/Components/SelectInput";
 import TextInput from "@/Components/TextInput";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
-import {
-  PROJECT_STATUS_CLASS_MAP,
-  PROJECT_STATUS_TEXT_MAP,
-} from "@/constans";
+import { PROJECT_STATUS_CLASS_MAP, PROJECT_STATUS_TEXT_MAP } from "@/constans";
 import { Head, Link, router } from "@inertiajs/react";
 import TableHeading from "@/Components/TableHeading";
 import toast from "react-hot-toast";
 import { PencilSquareIcon, TrashIcon } from "@heroicons/react/16/solid";
-
 
 const Index = ({ auth, projects, queryParams = null, success }) => {
   queryParams = queryParams || {};
@@ -65,15 +61,10 @@ const Index = ({ auth, projects, queryParams = null, success }) => {
         </div>
       }
     >
-      <Head title="Projects" />
+      <Head title="Projects" />      
       {success && toast.success(success)}
       <div className="py-12 ">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-          {/* {success && (
-            <div className="px-4 py-2 mb-4 text-white rounded bg-emerald-500">
-              {success}
-            </div>
-          )} */}
           <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg dark:bg-gray-800">
             <div className="p-6 text-gray-900 dark:text-gray-100">
               <div className="overflow-auto">
@@ -184,7 +175,7 @@ const Index = ({ auth, projects, queryParams = null, success }) => {
                               "px-2 py-1 rounded text-white inline-block text-center " +
                               PROJECT_STATUS_CLASS_MAP[project.status]
                             }
-                            style={{width: '100px'}}
+                            style={{ width: "100px" }}
                           >
                             {PROJECT_STATUS_TEXT_MAP[project.status]}
                           </span>
@@ -197,18 +188,20 @@ const Index = ({ auth, projects, queryParams = null, success }) => {
                         </td>
                         <td className="px-3 py-2">{project.createdBy.name}</td>
                         <td className="px-3 py-2 ">
-                          <Link
-                            href={route("project.edit", project.id)}
-                            className="font-medium text-blue-600 dark:text-blue-500 hover:"
-                          >
-                            <PencilSquareIcon className="w-5 h-6" />
-                          </Link>
-                          <button
-                            onClick={(e) => deleteProject(project)}
-                            className="font-medium text-red-600 dark:text-red-500"
-                          >
-                            <TrashIcon className="w-5 h-6" />
-                          </button>
+                          <div className="flex gap-2">
+                            <Link
+                              href={route("project.edit", project.id)}
+                              className="font-medium text-blue-600 dark:text-blue-500 hover:"
+                            >
+                              <PencilSquareIcon className="w-6 h-7" />
+                            </Link>
+                            <button
+                              onClick={(e) => deleteProject(project)}
+                              className="font-medium text-red-600 dark:text-red-500"
+                            >
+                              <TrashIcon className="w-6 h-7" />
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     ))}
