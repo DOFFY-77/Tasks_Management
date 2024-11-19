@@ -52,11 +52,7 @@ export default function TasksTable({
 
   return (
     <>
-      {success && (
-        <div className="bg-emerald-500 py-2 px-4 text-white rounded mb-4">
-          {success}
-        </div>
-      )}
+
       <div className="overflow-auto">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 border-b-2 border-gray-500">
@@ -177,7 +173,7 @@ export default function TasksTable({
                 <td className="px-3 py-2 text-nowrap">
                   <div className="flex gap-2">
                     <Link
-                      href={route("project.edit", task.id)}
+                      href={route("task.edit", task.id)}
                       className="font-medium text-blue-600 dark:text-blue-500 hover:"
                     >
                       <PencilSquareIcon className="w-6 h-7" />

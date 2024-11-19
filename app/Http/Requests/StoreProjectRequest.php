@@ -26,7 +26,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'name' => ['required', 'max:255'],
             'image' => ['nullable', 'image'],
-            'description' => ['string'],
+            'description' => ['nullable','string'],
             'status' => ['required', Rule::in(['pending', 'in_progress', 'completed'])], // ['in:pending,in_progress,completed'],
             'due_date' => ['nullable', 'date', 'after_or_equal:today'],
 
