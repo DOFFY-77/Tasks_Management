@@ -52,9 +52,10 @@ export default function Show({ auth, task }) {
                     <p className="mt-1">
                       <span
                         className={
-                          "px-2 py-1 rounded text-white " +
+                          "px-2 py-1 rounded text-white inline-block text-center " +
                           TASK_STATUS_CLASS_MAP[task.status]
                         }
+                        style={{ Width: "100px" }}
                       >
                         {TASK_STATUS_TEXT_MAP[task.status]}
                       </span>
@@ -66,9 +67,10 @@ export default function Show({ auth, task }) {
                     <p className="mt-1">
                       <span
                         className={
-                          "px-2 py-1 rounded text-white " +
+                          "px-2 py-1 rounded text-white inline-block text-center  " +
                           TASK_PRIORITY_CLASS_MAP[task.priority]
                         }
+                        style={{ Width: "100px" }}
                       >
                         {TASK_PRIORITY_TEXT_MAP[task.priority]}
                       </span>
